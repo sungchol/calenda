@@ -1,9 +1,12 @@
 // schedule-api.js
 // supabase-js 라이브러리 없이 fetch만으로 schedules 테이블을 CRUD 한다.
 // 다른 파일보다 먼저 불러오면 아래 함수들을 전역에서 쓸 수 있다.
-const SUPABASE_URL = "https://lxvrydlhecnkhzdzkdrb.supabase.co"; // Project URL
+const SUPABASE_URL = window.SUPABASE_URL; // Project URL
 const SUPABASE_KEY = window.SUPABASE_KEY; // Publishable key 
-const TABLE_URL = `${SUPABASE_URL}/rest/v1/myschedules`;
+const TABLE_URL = `${SUPABASE_URL}/rest/v1/${window.SUPABASE_DB}`;
+
+console.log(TABLE_URL);
+console.log(SUPABASE_KEY);
 
 // 편집 코드 방식(방식 B)을 쓰는 경우 브라우저에 저장된 코드를 헤더에 붙인다.
 export function getEditCode() {

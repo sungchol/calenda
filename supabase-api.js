@@ -3,9 +3,9 @@
 // 다른 파일보다 먼저 불러오면 아래 함수들을 전역에서 쓸 수 있다.
 import "./config.js";
 
-const SUPABASE_URL = window.SUPABASE_URL; // Project URL
+const SUPABASE_URL = "https://lxvrydlhecnkhzdzkdrb.supabase.co"; // Project URL
 const SUPABASE_KEY = window.SUPABASE_KEY; // Publishable key 
-const TABLE_URL = `${SUPABASE_URL}/rest/v1/schedules`;
+const TABLE_URL = `${SUPABASE_URL}/rest/v1/${SUPABASE_DB}`;
 
 // 편집 코드 방식(방식 B)을 쓰는 경우 브라우저에 저장된 코드를 헤더에 붙인다.
 export function getEditCode() {

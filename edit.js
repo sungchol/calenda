@@ -281,6 +281,7 @@ function setMonthPicker(strDate) {
   // document.body.classList.remove("loading");
 
   // local에 편집코드가 저장안되어 있다면 입력받고 시작한다
+  
   if (!getEditCode()) {
     const code = prompt("편집 코드를 입력한다");
     if (!code) {
@@ -293,7 +294,7 @@ function setMonthPicker(strDate) {
     location.reload(); // 헤더에 새 코드를 싣기 위해 새로고침한다
     return;
   }
-
+  
   document.body.classList.remove("loading");
 
   const inputDate = $("fDate");

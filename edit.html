@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>일정 편집 · 학사일정</title>
+    <link rel="stylesheet" href="edit.css" />
+    <script type="module" src="edit.js"></script>
+  </head>
+  <body class="loading">
+    <header>
+      <h1>학사일정 편집</h1>
+      <div class="right">
+        <span id="userEmail"></span>
+        <a href="index.html">캘린더 보기</a>
+        <button id="inputEditCode" type="button">편집코드재입력</button>
+      </div>
+
+    </header>
+    <main>
+      <!-- 입력 / 수정 폼 -->
+      <section>
+        <h2>
+          <span id="formTitle">새 일정 추가</span>
+          <span id="modeBadge" class="mode-badge mode-new">추가</span>
+        </h2>
+        <form id="scheduleForm" autocomplete="off">
+          <input type="hidden" id="fId" />
+          <div class="form-grid">
+            <label
+              >날짜 *
+              <input
+                type="text"
+                id="fDate"
+                required
+                
+              />
+            </label>
+            <label
+              >교시
+              <input type="text" id="fKyosi" placeholder="예: 3 또는 3-4" />
+            </label>
+            <label class="full"
+              >제목 *
+              <input type="text" id="fTitle" maxlength="100" required />
+            </label>
+            <label class="full"
+              >설명
+              <textarea id="fDescr"></textarea>
+            </label>
+            <label class="full"
+              >준비물
+              <textarea id="fPrepa"></textarea>
+            </label>
+            <label class="full"
+              >수행평가여부
+              <input type="text" id="fSuhang" placeholder="예: Y"></ㅑtextarea>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="saveBtn" class="btn btn-primary">
+              저장
+            </button>
+            <button type="button" id="resetBtn" class="btn btn-ghost">
+              새로 작성
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- 일정 목록 -->
+      <section>
+        <div class="list-head">
+          <h2 style="margin: 0">일정 목록</h2>
+          <div class="month-nav">
+            <button type="button" class="btn btn-ghost btn-sm" id="prevMonth">
+              ◀
+            </button>
+            <input type="month" id="monthPicker" />
+            <button type="button" class="btn btn-ghost btn-sm" id="nextMonth">
+              ▶
+            </button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>날짜</th>
+                <th>교시</th>
+                <th>제목</th>
+                <th class="hide-sm">설명</th>
+                <th class="hide-sm">준비물</th>
+                <th class="hide-sm">수행</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="listBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast"></div>
+
+  </body>
+</html>

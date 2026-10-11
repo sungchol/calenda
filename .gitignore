@@ -1,0 +1,5 @@
+.env
+*config.js
+auth*.*
+*.sql
+*.csv

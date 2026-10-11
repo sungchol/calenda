@@ -24,6 +24,7 @@ jobs:
         env:
           SUPABASE_URL: ${{ vars.SUPABASE_URL }} # Settings > Secrets and variables > Actions > Variables
           SUPABASE_KEY: ${{ vars.SUPABASE_KEY }} # Settings > Secrets and variables > Actions > Variables
+          SUPABASE_DB: ${{ vars.SUPABASE_DB }} # Settings > Secrets and variables > Actions > Variables
         run: python3 config.py
 
       - uses: actions/configure-pages@v5

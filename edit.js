@@ -297,7 +297,7 @@ function setMonthPicker(strDate) {
   if (!getEditCode()) {
     const code = prompt("편집 코드를 입력한다");
     if (!code) {
-      location.replace("/");
+      location.replace("./");
       return;
     }
     try {

@@ -21,7 +21,7 @@ header {
   gap: 12px;
   padding: 14px 20px;
   background: #fff;
-    border-bottom: 1px solid #e3e7ee;
+  border-bottom: 1px solid #e3e7ee;
   position: sticky;
   top: 0;
   z-index: 10;

@@ -176,8 +176,16 @@ $("scheduleForm").addEventListener("submit", async (e) => {
   let date_o = $("fDate").value;
 
   let sp_o = date_o.split(/[\.-]/).map(Number);
-  sp_o[0] = sp_o[0]>=2000 ? sp_o[0]-2000 : sp_o[0]>= 1900 ? sp_o[0] - 1900: sp_o[0];
-  date_o = sp_o.length === 3 ? `${pad(sp_o[0])}.${pad(sp_o[1])}.${pad(sp_o[2])}`: date_o;
+  sp_o[0] =
+    sp_o[0] >= 2000
+      ? sp_o[0] - 2000
+      : sp_o[0] >= 1900
+        ? sp_o[0] - 1900
+        : sp_o[0];
+  date_o =
+    sp_o.length === 3
+      ? `${pad(sp_o[0])}.${pad(sp_o[1])}.${pad(sp_o[2])}`
+      : date_o;
   $("fDate").value = date_o;
 
   const item = {
@@ -189,12 +197,16 @@ $("scheduleForm").addEventListener("submit", async (e) => {
     suhang: suhang,
   };
   if (!item.date || !item.title) return toast("날짜와 제목은 필수다.", true);
-  
-  console.log(item.date)
+
+  console.log(item.date);
   let safe = /^[\d]{2}\.[01][\d]\.[0-3][\d]$/.test(item.date);
   if (!safe) return toast("날짜 입력은 YY.MM.DD 또는 YY-MM-DD 형태다", true);
-  let splitDate = item.date.split(".")
-  let safe2 = splitDate[1]>0 && splitDate[1]<13 && splitDate[2]>0 && splitDate[2]<=new Date(splitDate[0],splitDate[1],0).getDate();
+  let splitDate = item.date.split(".");
+  let safe2 =
+    splitDate[1] > 0 &&
+    splitDate[1] < 13 &&
+    splitDate[2] > 0 &&
+    splitDate[2] <= new Date(splitDate[0], splitDate[1], 0).getDate();
   if (!safe2) return toast("유효한 날짜범위가 아니다", true);
   console.log(safe);
 
@@ -281,11 +293,11 @@ function setMonthPicker(strDate) {
   // document.body.classList.remove("loading");
 
   // local에 편집코드가 저장안되어 있다면 입력받고 시작한다
-  
+
   if (!getEditCode()) {
     const code = prompt("편집 코드를 입력한다");
     if (!code) {
-      location.replace("index.html");
+      location.replace("/");
       return;
     }
     try {
@@ -294,7 +306,7 @@ function setMonthPicker(strDate) {
     location.reload(); // 헤더에 새 코드를 싣기 위해 새로고침한다
     return;
   }
-  
+
   document.body.classList.remove("loading");
 
   const inputDate = $("fDate");

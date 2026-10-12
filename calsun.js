@@ -302,14 +302,16 @@ $("next").onclick = async () => {
   }
   try {
     await readFromSupabase();
-    loadEvents(data);
   } catch (error) {}
   render();
 };
-$("today").onclick = () => {
+$("today").onclick = async () => {
   now = new Date();
   viewY = now.getFullYear();
   viewM = now.getMonth();
+  try {
+    await readFromSupabase();
+  } catch (error) {}
   render();
 };
 
